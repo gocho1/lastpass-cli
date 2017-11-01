@@ -8,3 +8,4 @@ RUN apk add --no-cache --update openssl libcurl libxml2 libssh-dev libressl-dev 
     make && \
     ln -s /lastpass-cli/build/lpass /usr/bin/lpass && \
     apk del curl-dev pinentry xclip git make cmake g++
+ENTRYPOINT ["lpass"]
