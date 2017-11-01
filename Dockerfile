@@ -1,5 +1,9 @@
-FROM ubuntu:16.04
+FROM alpine:3.5
 
-RUN apt-get update && \
-    apt-get install -y openssl libcurl4-openssl-dev libxml2 libssl-dev libxml2-dev pinentry-curses xclip cmake build-essential pkg-config && \
-    apt-get install -y binutils libc6 libcurl3 libssl1.0.0 libxml2 lastpass-cli
+MAINTAINER Cai Cooper "caicooper82@gmail.com"
+
+RUN apk add --no-cache --update openssl libcurl libxml2 libssh-dev libressl-dev libxml2-dev curl-dev pinentry xclip git make cmake g++ && \
+    git clone https://github.com/lastpass/lastpass-cli && \
+    cd lastpass-cli && \
+    make && \
+    ln -s /lastpass-cli/build/lpass /usr/bin/lpass
