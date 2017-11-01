@@ -1,11 +1,13 @@
 #!/bin/bash
 
-if [[ ! -d ~/.lpass ]]
+state='.lpass'
+
+if [ ! -d ~/${state} ]
 then
-  mkdir ~/.lpass
+  mkdir ~/${state}
 fi
 
 docker run --rm -it \
            --name lastpass-cli \
-           --volume ~/.lpass:/home/lpass/.lpass \
+           --volume ~/${state}:/home/lpass/${state} \
            cagiti/lastpass-cli:latest $*
