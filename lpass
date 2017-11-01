@@ -1,6 +1,11 @@
 #!/bin/bash
 
+if [[ ! -d ~/.lpass ]]
+then
+  mkdir ~/.lpass
+fi
+
 docker run --rm -it \
            --name lastpass-cli \
-           --volume ~/.lpass:/root/.lpass \
+           --volume ~/.lpass:/home/lpass/.lpass \
            cagiti/lastpass-cli:latest $*
