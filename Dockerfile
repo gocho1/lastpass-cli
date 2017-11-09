@@ -12,16 +12,15 @@ RUN addgroup -g ${gid} ${group} && \
 
 RUN apk add --no-cache --update openssl libcurl libxml2 libssh-dev libressl-dev libxml2-dev curl-dev pinentry xclip git make cmake g++
 
-USER ${user}
-WORKDIR /home/${user}
-
 RUN git clone https://github.com/lastpass/lastpass-cli && \
-    cd lastpass-cli && \
+    cd /lastpass-cli && \
     make
 
 USER root
 
-RUN ln -s /home/${user}/lastpass-cli/build/lpass /usr/bin/lpass && \
+RUN cp /lastpass-cli/build/lpass /usr/bin/lpass && \
+    chmod 755 /usr/bin/lpass && \
+    rm -rf /lastpass-cli && \
     apk del curl-dev pinentry xclip git make cmake g++
 
 USER ${user}
