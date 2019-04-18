@@ -19,9 +19,20 @@ This will pull and run the container image built by [dockerhub](https://hub.dock
 ```
 docker run --rm -it \
            --name lastpass-cli \
-           cagiti/lastpass-cli:latest $*
+           gocho/lastpass-cli:latest $*
 ```
 ## lpass script
 ```
 ./lpass --version
+```
+
+## use docker image as a function
+### write the following in a .function file (or wherever you want) and source it in your .<shell>rc
+```
+lpass(){
+ docker run --rm -it \
+           --name lastpass-cli \
+           gocho/lastpass-cli:latest $*
+
+}
 ```
