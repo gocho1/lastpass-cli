@@ -10,7 +10,7 @@ ARG gid=1000
 RUN addgroup -g ${gid} ${group} && \
     adduser -h "/home/${user}" -u ${uid} -G ${group} -s /bin/bash -D ${user}
 
-RUN apk add --no-cache --update openssl openssl-dev libcurl libxml2 libssh-dev libressl-dev curl-dev pinentry xclip git make cmake g++
+RUN apk add --no-cache --update openssl openssl-dev libcurl libxml2 libxml2-dev libssh-dev libressl-dev curl-dev pinentry xclip git make cmake g++
 
 RUN git clone https://github.com/lastpass/lastpass-cli && \
     cd /lastpass-cli && \
