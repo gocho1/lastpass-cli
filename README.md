@@ -15,7 +15,7 @@ docker run --rm -it \
 ```
 
 ## run
-This will pull and run the container image built by [dockerhub](https://hub.docker.com/r/cagiti/lastpass-cli).
+This will pull and run the container image built by [dockerhub](https://hub.docker.com/r/gocho/lastpass-cli).
 ```
 docker run --rm -it \
            --name lastpass-cli \

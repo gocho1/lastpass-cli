@@ -10,4 +10,4 @@ fi
 docker run --rm -it \
            --name lastpass-cli \
            --volume ~/${state}:/home/lpass/${state} \
-           cagiti/lastpass-cli:latest $*
+           gocho/lastpass-cli:latest $*
